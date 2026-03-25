@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,6 +55,25 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Page-specific tokens - Light (used by LucasCacau page) */
+    --page-bg-deep: 220 14% 96%;
+    --page-bg-alt: 220 14% 93%;
+    --page-bg-surface: 0 0% 100%;
+    --page-text-heading: 220 25% 12%;
+    --page-text-body: 220 15% 35%;
+    --page-text-muted: 220 10% 50%;
+    --page-glow-cyan: hsl(200, 95%, 40%, 0.08);
+    --page-glow-coral: hsl(12, 90%, 58%, 0.06);
+    --page-border-subtle: hsl(200, 95%, 40%, 0.12);
+    --page-icon-bg: hsl(200, 95%, 40%, 0.1);
+    --page-icon-bg-hover: hsl(200, 95%, 40%, 0.18);
+    --page-coral-icon-bg: hsl(12, 90%, 58%, 0.1);
+    --page-highlight-bg: hsl(200, 95%, 40%, 0.06);
+    --page-shadow-card: 0 2px 20px hsl(220, 14%, 80%, 0.4);
+    --page-shadow-card-hover: 0 8px 30px hsl(200, 95%, 40%, 0.1);
+    --page-shadow-image: 0 20px 60px hsl(220, 14%, 70%, 0.4);
+    --page-footer-bg: 220 14% 98%;
   }
 
   .dark {
@@ -91,6 +112,25 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Page-specific tokens - Dark (used by LucasCacau page) */
+    --page-bg-deep: 225 25% 8%;
+    --page-bg-alt: 225 25% 6%;
+    --page-bg-surface: 225 25% 10%;
+    --page-text-heading: 210 20% 92%;
+    --page-text-body: 210 20% 75%;
+    --page-text-muted: 210 20% 60%;
+    --page-glow-cyan: hsl(185, 85%, 50%, 0.12);
+    --page-glow-coral: hsl(12, 90%, 58%, 0.08);
+    --page-border-subtle: hsl(185, 85%, 50%, 0.15);
+    --page-icon-bg: hsl(185, 85%, 50%, 0.1);
+    --page-icon-bg-hover: hsl(185, 85%, 50%, 0.2);
+    --page-coral-icon-bg: hsl(12, 90%, 58%, 0.15);
+    --page-highlight-bg: hsl(185, 85%, 50%, 0.08);
+    --page-shadow-card: 0 2px 20px hsl(185, 85%, 50%, 0.06);
+    --page-shadow-card-hover: 0 8px 30px hsl(185, 85%, 50%, 0.12);
+    --page-shadow-image: 0 20px 60px hsl(225, 25%, 4%, 0.7);
+    --page-footer-bg: 225 25% 5%;
   }
 }
 
@@ -103,3 +143,61 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* ─── LucasCacau page scoped theme (overrides global tokens) ─── */
+.lucascacau-theme {
+  --background: 220 14% 96%;
+  --foreground: 220 25% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 25% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 25% 10%;
+  --primary: 200 95% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 220 14% 92%;
+  --secondary-foreground: 220 25% 10%;
+  --muted: 220 10% 90%;
+  --muted-foreground: 220 10% 42%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 12% 86%;
+  --input: 220 12% 86%;
+  --ring: 200 95% 40%;
+  --radius: 0.75rem;
+}
+
+.dark .lucascacau-theme {
+  --background: 225 25% 6%;
+  --foreground: 210 20% 95%;
+  --card: 225 22% 9%;
+  --card-foreground: 210 20% 95%;
+  --popover: 225 22% 9%;
+  --popover-foreground: 210 20% 95%;
+  --primary: 185 85% 50%;
+  --primary-foreground: 225 25% 6%;
+  --secondary: 225 18% 14%;
+  --secondary-foreground: 210 20% 95%;
+  --muted: 225 18% 14%;
+  --muted-foreground: 215 15% 55%;
+  --accent: 160 84% 39%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 63% 31%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 225 15% 16%;
+  --input: 225 15% 16%;
+  --ring: 185 85% 50%;
+}
+
+@layer utilities {
+  .text-gradient-hero-dark {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(185 60% 80%) 100%);
+  }
+  .text-gradient-hero-light {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(220 25% 10%) 0%, hsl(200 95% 35%) 100%);
+  }
+}
+
